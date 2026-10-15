@@ -21,7 +21,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelate
 #bossWrap{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:min(440px,65vw);text-align:center;pointer-events:none;z-index:4}
 #bossBar{height:18px;background:#2e1022;border:1px solid #7d356d;border-radius:6px;overflow:hidden;margin-top:4px}
 .bossfill{height:100%;background:linear-gradient(90deg,#9c27b0,#e040fb);transition:width .1s}
-#menu,#modeSelect,#skins,#gameover,#pauseMenu,#redeem,#confirmPop,#receiptPop{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(4,7,16,.82);backdrop-filter:blur(6px);z-index:10}
+#menu,#modeSelect,#skins,#gameover,#pauseMenu,#redeem,#confirmPop,#receiptPop,#multiplayerLogin,#multiplayerRegister,#multiplayerLobby,#multiplayerMode{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(4,7,16,.82);backdrop-filter:blur(6px);z-index:10}
 .card{width:min(540px,92vw);max-height:88vh;overflow-y:auto;background:linear-gradient(150deg,rgba(25,37,68,.95),rgba(12,18,36,.95));border:1px solid rgba(120,158,235,.4);border-radius:22px;padding:26px;box-shadow:0 20px 50px #000c;text-align:center}
 h1{margin:0 0 6px;font-size:38px;color:#ffcf58;text-shadow:0 4px 12px rgba(255,207,88,.3)}h2{margin-top:0;color:#e2ecff}
 .menuBtns{display:grid;gap:12px;margin-top:18px}
@@ -35,6 +35,28 @@ h1{margin:0 0 6px;font-size:38px;color:#ffcf58;text-shadow:0 4px 12px rgba(255,2
 .touchbtn{pointer-events:auto;position:absolute;width:60px;height:60px;border-radius:50%;background:rgba(30,45,77,.7);color:#fff;border:2px solid rgba(135,166,227,.6);font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center}
 .touchbtn:active{background:rgba(60,90,150,.9);transform:scale(.95)}
 .left{left:20px;bottom:24px}.right{left:90px;bottom:24px}.jump{right:20px;bottom:24px}.attack{right:90px;bottom:24px}.skill{right:20px;bottom:94px;background:rgba(100,40,150,.7);border-color:#b86cff}
+#pvpArena{position:absolute;inset:0;z-index:9;background:linear-gradient(180deg,#071326f5,#111827f7);display:flex;flex-direction:column;gap:12px;padding:16px;overflow:auto}#pvpArena.hidden{display:none!important}.pvpPlayers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pvpPlayer{background:#111d35;border:1px solid #536a98;border-radius:12px;padding:12px}.pvpBar{height:13px;background:#3b1724;border-radius:8px;overflow:hidden;margin:7px 0}.pvpFill{height:100%;background:linear-gradient(90deg,#ef4444,#fb7185);width:100%;transition:width .15s}.pvpActions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.pvpActions button{padding:13px 8px;border-radius:10px;color:white;font-weight:bold;background:linear-gradient(135deg,#31568e,#25345b);border:1px solid #7194d5}.pvpActions button:disabled{opacity:.45}.pvpStage{flex:1;min-height:180px;border:1px solid #40557d;border-radius:14px;background:linear-gradient(180deg,#0b1830,#132b40 78%,#1e4827 79%,#17371e);position:relative;overflow:hidden}.pvpStage:after{content:'';position:absolute;left:0;right:0;bottom:20%;height:3px;background:#4ade80;opacity:.7;pointer-events:none}.pvpStage>div:nth-child(2){display:none}.fighter{position:absolute;left:0;bottom:20%;width:58px;height:100px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;transform:translateX(-50%);transition:left .08s linear}.fighterBody{width:34px;height:54px;border:2px solid #dbeafe;border-radius:9px 9px 5px 5px;background:linear-gradient(145deg,#60a5fa,#1d4ed8);box-shadow:0 0 18px #60a5fa66}.fighter.enemy .fighterBody{background:linear-gradient(145deg,#fb7185,#991b1b);box-shadow:0 0 18px #fb718566}.fighterHead{position:absolute;bottom:58px;width:29px;height:29px;border-radius:50%;background:#f1c7a5;border:2px solid #fff}.fighterArrow{position:absolute;bottom:91px;color:#fde047;font-size:24px;font-weight:900;text-shadow:0 0 9px #fde047;animation:arrowBob .7s infinite alternate}.fighter.shield-active:before{content:"";position:absolute;inset:-8px -9px 13px;border:3px solid #93c5fd;border-radius:45%;box-shadow:0 0 15px #60a5fa;pointer-events:none;animation:shieldPulse .65s infinite alternate}.fighter.shield-active:after{content:"🛡️";position:absolute;top:-8px;right:-14px;font-size:20px;filter:drop-shadow(0 0 5px #93c5fd)}@keyframes shieldPulse{to{box-shadow:0 0 23px #60a5fa;opacity:.7}}.fighterName{font-size:11px;margin-top:5px;color:#fff;text-shadow:0 1px 4px #000}.fightEffect{position:absolute;font-size:25px;animation:fxPop .6s ease-out forwards;pointer-events:none}@keyframes arrowBob{to{transform:translateY(-5px)}}@keyframes fxPop{to{transform:translateY(-20px) scale(1.3);opacity:0}}
+#game.multiplayer-mode #goldPanel{display:none!important}
+#game.multiplayer-mode #hud{left:8px;right:8px;top:8px;gap:6px}
+#game.multiplayer-mode #hud>.panel{padding:7px 9px}
+#game.multiplayer-mode #duelHud{top:8px!important;width:min(300px,46vw)!important;padding:7px 9px!important}
+#game.multiplayer-mode .bar{width:min(150px,28vw);height:12px}
+#game.multiplayer-mode #duelHud .bar{display:none!important}
+#game.multiplayer-mode #duelHud{left:calc(50% + 4px)!important;max-width:46%!important}
+#game.multiplayer-mode .pauseBtn{display:none!important;visibility:hidden!important;pointer-events:none!important}
+#game.multiplayer-mode #damageStat{display:block!important;font-size:11px;color:#fca5a5;font-weight:800}
+/* Mode petualangan memakai kontrol standar; tombol tambahan hanya aktif di mode Multiplayer (PvP/VS Computer). */
+#touch .mpSkill{display:none!important;visibility:hidden!important;pointer-events:none!important}
+#game.multiplayer-mode #touch .mpSkill{display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:48px!important;height:44px!important;border-radius:10px!important;font-size:11px!important;z-index:9}
+#game.multiplayer-mode #dashBtn{right:66px!important;bottom:96px!important}
+#game.multiplayer-mode #shieldBtn{right:12px!important;bottom:96px!important}
+#game.multiplayer-mode #arrowBtn{right:12px!important;bottom:146px!important}
+#game.multiplayer-mode #skillBtn{right:66px!important;bottom:146px!important;width:48px!important;height:44px!important;border-radius:10px!important;font-size:18px!important;z-index:9}
+#game.multiplayer-mode .jump{right:12px;bottom:22px}
+#game.multiplayer-mode .attack{right:82px;bottom:22px}
+#game.multiplayer-mode .left{left:12px;bottom:22px}
+#game.multiplayer-mode .right{left:80px;bottom:22px}
+#game.multiplayer-mode #damageStat{color:#fca5a5;font-weight:800}
 #hint{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(10,16,30,.8);padding:6px 14px;border-radius:20px;font-size:12px;pointer-events:none}
 @media(max-width:600px){.bar{width:120px}h1{font-size:30px}}
 </style>
@@ -43,14 +65,15 @@ h1{margin:0 0 6px;font-size:38px;color:#ffcf58;text-shadow:0 4px 12px rgba(255,2
 <div id="game">
 <canvas id="c"></canvas>
 <div id="hud" class="hidden">
+  <div id="duelHud" class="panel hidden" style="position:absolute;top:8px;left:calc(50% + 4px);z-index:5;padding:5px 8px;max-width:46%;font-size:11px"><b id="duelEnemyName">Lawan</b><div class="stat" style="color:#fca5a5">❤️ HP Musuh <span id="duelEnemyHpText">100/100</span></div><div class="stat" style="color:#facc15">⚔️ Damage 1x serang <span id="duelDamageText">18</span></div></div>
   <div class="panel">
     <div class="stat">❤️ HP <span id="hpText">100/100</span></div><div class="bar"><div id="hp" class="fill"></div></div>
     <div class="stat">⭐ LV <span id="lv">1</span> · XP</div><div class="bar"><div id="xp" class="fill"></div></div>
   </div>
   <div style="display:flex;gap:10px;align-items:flex-start">
-    <div class="panel" style="text-align:right">
+    <div id="goldPanel" class="panel" style="text-align:right">
       <div class="stat">🪙 <span id="gold">0</span> Gold</div>
-      <div class="stat">⚔️ ATK <span id="atk">18</span></div>
+      <div class="stat" id="damageStat">⚔️ DMG <span id="atk">18</span></div>
       <div class="stat"><span id="modeBadge" style="color:#60a5fa;font-size:11px">MODE</span></div>
     </div>
     <button class="pauseBtn" onclick="pauseGame()">⏸️</button>
@@ -63,6 +86,7 @@ h1{margin:0 0 6px;font-size:38px;color:#ffcf58;text-shadow:0 4px 12px rgba(255,2
   <div class="menuBtns">
    <button class="btn" onclick="snd('menu');show('modeSelect');hide('menu')">▶ MULAI PETUALANGAN</button>
    <button class="btn" onclick="snd('menu');opStats()">🦸 PILIH CLASS</button>
+   <button class="btn" onclick="snd('menu');openMultiplayer()">🌐 MULTIPLAYER</button>
    <button class="btn" onclick="snd('menu');$('redGold').textContent=gld;show('redeem');hide('menu')">💎 PENUKARAN</button>
   </div>
  </div>
@@ -82,12 +106,53 @@ h1{margin:0 0 6px;font-size:38px;color:#ffcf58;text-shadow:0 4px 12px rgba(255,2
     <button onclick="preTrd(10000,250)">Nuker 10.000 Koin</button>
    </div>
    <div class="item">
+    <b>25.000 KOIN ➔ 650 DIAMOND</b>
+    <button onclick="preTrd(25000,650)">Nuker 25.000 Koin</button>
+   </div>
+   <div class="item">
     <b>50.000 KOIN ➔ 1500 DIAMOND</b>
     <button onclick="preTrd(50000,1500)">Nuker 50.000 Koin</button>
+   </div>
+   <div class="item">
+    <b>100.000 KOIN ➔ 8500 DIAMOND</b>
+    <button onclick="preTrd(100000,8500)">Nuker 100.000 Koin</button>
    </div>
   </div>
   <button class="btn" style="margin-top:16px;width:100%" onclick="cls();show('menu')">Kembali</button>
  </div>
+</div>
+<div id="multiplayerLogin" class="hidden"><div class="card">
+ <h2>🌐 MULTIPLAYER</h2><p>Login akun Monsterfall.</p>
+ <input id="mpUsername" autocomplete="username" placeholder="Username" style="width:100%;padding:12px;border-radius:9px;margin:6px 0;background:#0f172a;color:white;border:1px solid #64748b">
+ <input id="mpPassword" type="password" autocomplete="current-password" placeholder="Password" style="width:100%;padding:12px;border-radius:9px;margin:6px 0;background:#0f172a;color:white;border:1px solid #64748b">
+ <p style="margin:2px 0 8px;font-size:14px"><a href="#" onclick="event.preventDefault();openMpRegister()" style="color:#93c5fd;text-decoration:underline">Belum Punya akun?</a></p>
+ <p id="mpLoginMsg" style="color:#fca5a5;min-height:18px;font-size:13px"></p>
+ <div class="menuBtns"><button class="btn" onclick="mpLogin()">Login</button><button class="btn" style="background:#334155" onclick="closeMp()">Kembali</button></div>
+ </div></div>
+<div id="multiplayerRegister" class="hidden"><div class="card">
+ <h2>📝 BUAT AKUN</h2><p>Buat akun baru khusus Monsterfall.</p>
+ <input id="mpRegUsername" autocomplete="username" maxlength="20" placeholder="Buat username (3–20 karakter)" style="width:100%;padding:12px;border-radius:9px;margin:6px 0;background:#0f172a;color:white;border:1px solid #64748b">
+ <input id="mpRegPassword" type="password" autocomplete="new-password" placeholder="Buat password (minimal 6 karakter)" style="width:100%;padding:12px;border-radius:9px;margin:6px 0;background:#0f172a;color:white;border:1px solid #64748b">
+ <input id="mpRegPassword2" type="password" autocomplete="new-password" placeholder="Ulangi password" style="width:100%;padding:12px;border-radius:9px;margin:6px 0;background:#0f172a;color:white;border:1px solid #64748b">
+ <p id="mpRegisterMsg" style="color:#fca5a5;min-height:18px;font-size:13px"></p>
+ <div class="menuBtns"><button class="btn" onclick="mpRegister()">Buat Akun</button><button class="btn" style="background:#334155" onclick="backMpLogin()">Kembali ke Login</button></div>
+ </div></div>
+<div id="multiplayerMode" class="hidden"><div class="card"><h2>🎮 PILIH MODE MULTIPLAYER</h2><p>Login sebagai <b id="mpModeName" class="gold">-</b></p><div class="menuBtns"><button class="btn" onclick="startVsComputer()">🤖 VS Computer</button><button class="btn" onclick="openOnlinePvp()">⚔️ PvP</button><button class="btn" style="background:#334155" onclick="mpLogout()">Keluar Akun</button></div></div></div>
+<div id="multiplayerLobby" class="hidden"><div class="card">
+ <h2>🏟️ LOBBY MULTIPLAYER</h2><p>Login sebagai <b id="mpName" class="gold">-</b></p>
+ <div class="item" style="text-align:center"><div style="font-size:32px">⚔️</div><b>Menunggu pemain lain...</b><p id="mpLobbyStatus">Lobby siap. Sistem PvP akan ditambahkan pada tahap berikutnya.</p><p>Pemain di lobby: <b id="mpCount">1</b></p></div>
+ <button id="mpReadyBtn" class="btn" style="margin-top:14px;width:100%" onclick="findPvpMatch()">✅ Ready — Cari Match PvP</button>
+ <button class="btn" style="margin-top:8px;width:100%;background:#334155" onclick="leaveMp()">Keluar dari Lobby</button>
+ </div></div>
+<div id="pvpArena" class="hidden">
+ <h2 style="text-align:center;margin:4px 0">⚔️ ARENA PvP</h2><p id="pvpStatus" style="text-align:center;margin:0">Menghubungkan pemain...</p>
+ <div class="pvpPlayers">
+  <div class="pvpPlayer"><b id="pvpMeName">Kamu</b><div class="pvpBar"><div id="pvpMeBar" class="pvpFill"></div></div><small>HP <span id="pvpMeHp">100/100</span></small><br><small id="pvpMeClass">Class: Novice</small></div>
+  <div class="pvpPlayer"><b id="pvpEnemyName">Lawan</b><div class="pvpBar"><div id="pvpEnemyBar" class="pvpFill"></div></div><small>HP <span id="pvpEnemyHp">100/100</span></small><br><small id="pvpEnemyClass">Class: Novice</small></div>
+ </div>
+ <div class="pvpStage" id="pvpStage"><div class="fighter" id="fighterMe"><div class="fighterArrow">▼</div><div class="fighterHead"></div><div class="fighterBody"></div><small class="fighterName" id="fighterMeName">Kamu</small></div><div style="font-size:22px;color:#93c5fd;font-weight:900">VS</div><div class="fighter enemy" id="fighterEnemy"><div class="fighterHead"></div><div class="fighterBody"></div><small class="fighterName" id="fighterEnemyName">Lawan</small></div></div>
+ <div class="pvpActions"><button onpointerdown="keys.a=1" onpointerup="keys.a=0" onpointerleave="keys.a=0">◀ Kiri</button><button onpointerdown="keys.d=1" onpointerup="keys.d=0" onpointerleave="keys.d=0">Kanan ▶</button><button onclick="jmp()">⬆ Lompat</button><button onclick="atkFn()">⚔️ Serang</button><button id="pvpDashBtn" onclick="pvpUse('dash')">💨 Dash (5s)</button><button id="pvpShieldBtn" onclick="pvpUse('shield')">🛡️ Shield (5s)</button><button id="pvpArrowBtn" onclick="pvpUse('arrow')">🏹 Tembak Panah (5s)</button><button id="pvpClassBtn" onclick="pvpUse('class')">✨ Skill Class (5s)</button></div>
+ <button class="btn" style="background:#7f1d1d" onclick="leavePvp()">Keluar dari PvP</button>
 </div>
 <div id="confirmPop" class="hidden">
  <div class="card">
@@ -126,13 +191,16 @@ h1{margin:0 0 6px;font-size:38px;color:#ffcf58;text-shadow:0 4px 12px rgba(255,2
  <button class="btn btn-danger" onclick="sv();cls();state='menu';show('menu')">🚪 Keluar & Simpan</button>
 </div></div></div>
 <div id="skins" class="hidden"><div class="card"><h2>🦸 DAFTAR CLASS</h2><p>Gold: <b class="gold" id="shopGold">0</b></p><div id="classContent" class="items"></div><button class="btn" style="margin-top:16px" onclick="cls();show('menu')">Kembali</button></div></div>
-<div id="gameover" class="hidden"><div class="card"><h1 id="overTitle">OVER</h1><p id="result"></p><button class="btn" onclick="snd('menu');cls();show('modeSelect')">🔄 Main Lagi</button><button class="btn" onclick="cls();show('menu')" style="margin-top:8px;background:#334155">Menu Utama</button></div></div>
+<div id="gameover" class="hidden"><div class="card"><h1 id="overTitle">OVER</h1><p id="result"></p><button class="btn" onclick="playAgain()">🔄 Main Lagi</button><button class="btn" onclick="returnToMainMenu()" style="margin-top:8px;background:#334155">Menu Utama</button></div></div>
 <div id="touch" class="hidden">
  <button class="touchbtn left" onpointerdown="keys.a=true" onpointerup="keys.a=false" onpointerleave="keys.a=false">◀</button>
  <button class="touchbtn right" onpointerdown="keys.d=true" onpointerup="keys.d=false" onpointerleave="keys.d=false">►</button>
  <button class="touchbtn jump" onpointerdown="jmp()">⬆</button>
  <button class="touchbtn attack" onpointerdown="atkFn()">⚔</button>
  <button id="skillBtn" class="touchbtn skill" onpointerdown="useSk()">✦</button>
+ <button id="dashBtn" class="touchbtn mpSkill" style="right:145px;bottom:88px;width:54px;height:54px;font-size:12px" onpointerdown="duelSkill('dash')">Dash</button>
+ <button id="arrowBtn" class="touchbtn mpSkill" style="right:82px;bottom:150px;width:54px;height:54px;font-size:12px" onpointerdown="duelSkill('arrow')">Panah</button>
+ <button id="shieldBtn" class="touchbtn mpSkill" style="right:20px;bottom:88px;width:54px;height:54px;font-size:12px" onpointerdown="duelSkill('shield')">Shield</button>
 </div>
 <div id="hint" class="hidden">Border Dunia Kiri Kanan: 0 - 2400</div>
 </div>
@@ -157,7 +225,208 @@ if (!arcadePlayerId) {
   localStorage.setItem('mfArcadePlayerId', arcadePlayerId);
 }
 
+let mpUser=null, mpLobbyRef=null, mpPresenceRef=null, pvpRoomRef=null, pvpRoomId=null, pvpRoomListener=null, pvpEnemyListener=null, pvpSelfListener=null, pvpPlayerKey=null, pvpMatchEnemyId=null, pvpCooldowns={dash:0,shield:0,arrow:0,class:0}, pvpShieldUntil=0, pvpTick=null, localDuel=false, duelState=null, duelAiTimer=null, pvpReady=false, lastRemoteSkillEvent=null, lastLocalSkillEvent=null, lastRemoteDamageEvent=null, lastLocalDamageEvent=null, pvpLastHpSent=null;
+let pvpFinishShown=false, pvpFinishCleanupScheduled=false;
+function openMultiplayer(){cls();hide('pvpArena');if(mpUser){$('mpModeName').textContent=mpUser.username;show('multiplayerMode');return}show('multiplayerLogin');$('mpLoginMsg').textContent='';$('mpUsername').value='';$('mpPassword').value=''}
+function closeMp(){cls();hide('pvpArena');show('menu')}
+function openMpRegister(){hide('multiplayerLogin');show('multiplayerRegister');$('mpRegisterMsg').textContent='';$('mpRegUsername').value='';$('mpRegPassword').value='';$('mpRegPassword2').value=''}
+function backMpLogin(){hide('multiplayerRegister');show('multiplayerLogin')}
+function mpAccountKey(username){return username.trim().toLowerCase().replace(/[^a-z0-9_-]/g,'_')}
+async function mpPasswordHash(password){const data=new TextEncoder().encode(password);const digest=await crypto.subtle.digest('SHA-256',data);return Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('')}
+async function mpRegister(){
+ const username=$('mpRegUsername').value.trim(),password=$('mpRegPassword').value,password2=$('mpRegPassword2').value,msg=$('mpRegisterMsg');
+ if(!/^[a-zA-Z0-9_-]{3,20}$/.test(username)){msg.textContent='Username harus 3–20 karakter: huruf, angka, _ atau -.';return}
+ if(password.length<6){msg.textContent='Password minimal 6 karakter.';return}
+ if(password!==password2){msg.textContent='Konfirmasi password tidak cocok.';return}
+ msg.style.color='#fca5a5';msg.textContent='Membuat akun...';
+ try{
+  const key=mpAccountKey(username),ref=arcadeDb.ref('monsterfallAccounts/'+key),hash=await mpPasswordHash(password);
+  const result=await ref.transaction(current=>current===null?{username, passwordHash:hash, createdAt:firebase.database.ServerValue.TIMESTAMP}:undefined);
+  if(!result.committed){msg.textContent='Username sudah digunakan. Pilih username lain.';return}
+  msg.style.color='#86efac';msg.textContent='Akun berhasil dibuat! Silakan login.';
+  $('mpUsername').value=username;$('mpPassword').value='';setTimeout(()=>{hide('multiplayerRegister');show('multiplayerLogin');$('mpLoginMsg').style.color='#86efac';$('mpLoginMsg').textContent='Akun berhasil dibuat. Silakan login.'},700);
+ }catch(e){console.error(e);msg.textContent='Gagal membuat akun. Periksa koneksi atau izin Firebase.'}
+}
+async function mpLogin(){
+ const username=$('mpUsername').value.trim(),password=$('mpPassword').value;
+ if(!username||!password){$('mpLoginMsg').textContent='Masukkan username dan password.';return}
+ $('mpLoginMsg').style.color='#fca5a5';$('mpLoginMsg').textContent='Memeriksa akun...';
+ try{
+  const key=mpAccountKey(username),snap=await arcadeDb.ref('monsterfallAccounts/'+key).once('value'),account=snap.val();
+  if(!account||String(account.username||'').toLowerCase()!==username.toLowerCase()||account.passwordHash!==await mpPasswordHash(password)){$('mpLoginMsg').textContent='Login gagal. Username atau password salah.';return}
+  mpUser={id:key,username:String(account.username)};
+  localStorage.setItem('mfLoggedInAccount',JSON.stringify({id:mpUser.id,username:mpUser.username}));
+  $('mpName').textContent=mpUser.username;$('mpModeName').textContent=mpUser.username;cls();show('multiplayerMode');
+ }catch(e){console.error(e);$('mpLoginMsg').textContent='Tidak bisa menghubungi server. Coba lagi.'}
+}
+async function restoreMpSession(){
+ try{const saved=JSON.parse(localStorage.getItem('mfLoggedInAccount')||'null');if(!saved||!saved.id||!saved.username)return;const snap=await arcadeDb.ref('monsterfallAccounts/'+saved.id).once('value');const a=snap.val();if(!a||String(a.username)!==String(saved.username)){localStorage.removeItem('mfLoggedInAccount');return}mpUser={id:saved.id,username:String(a.username)};$('mpModeName').textContent=mpUser.username;cls();show('multiplayerMode')}catch(e){console.warn('Pemulihan sesi gagal',e)}
+}
+function mpLogout(){leaveMp();localStorage.removeItem('mfLoggedInAccount');mpUser=null;cls();show('multiplayerLogin')}
+function openOnlinePvp(){pvpReady=false;if($('mpReadyBtn')){$('mpReadyBtn').disabled=false;$('mpReadyBtn').textContent='✅ Ready — Cari Match PvP';}$('mpLobbyStatus').textContent='Lobby siap. Tekan Ready untuk mencari lawan.';cls();show('multiplayerLobby');$('mpName').textContent=mpUser?mpUser.username:'-';joinMpLobby()}
+function startVsComputer(){
+ if(!mpUser)return;document.getElementById('game').classList.add('multiplayer-mode');
+ localDuel=false;arenaMode='computer';arenaShots=[];arenaCooldowns={dash:0,arrow:0,shield:0};arenaShieldUntil=0;arenaEnemyShieldUntil=0;arenaEnemyAttackCd=1.4;arenaEnemyArrowCd=5;
+ hide('multiplayerMode');hide('pvpArena');selMode('classic',true);
+ arenaEnemy={x:Math.min(mxW-100,Math.max(550,p.x+360)),y:340,vx:0,vy:0,w:p.w,h:p.h,hp:selC==='Paladin'?150:100,mx:selC==='Paladin'?150:100,og:1,iv:0,at:0,d:-1,s:3.2,df:0,cl:['Warrior','Ranger','Mage','Assassin','Paladin','Elementalist'][Math.floor(Math.random()*6)],isArenaClone:true,shieldUntil:0};
+ $('duelEnemyName').textContent='Computer · '+arenaEnemy.cl;show('duelHud');updateArenaHud();
+ $('modeBadge').textContent='VS COMPUTER';addFt(p.x,p.y-45,'VS COMPUTER','#facc15');
+}
+function updateArenaHud(){if(!arenaEnemy)return;$('duelEnemyHpText').textContent=Math.max(0,Math.ceil(arenaEnemy.hp))+'/'+arenaEnemy.mx;const hitDamage=Math.round(at*(brsk>0?2:1));$('atk').textContent=hitDamage;$('duelDamageText').textContent=hitDamage;$('damageStat').style.display='block'}
+function duelSkill(skill){if(state!=='play'||!arenaMode||!p||!arenaEnemy)return;let cd=arenaCooldowns[skill]||0;if(cd>0)return;arenaCooldowns[skill]=5;
+ if(skill==='dash'){p.x=Math.max(0,Math.min(mxW-p.w,p.x+p.d*125));p.iv=Math.max(p.iv,.35);addFt(p.x,p.y-20,'DASH!','#67e8f9');}
+ if(skill==='shield'){arenaShieldUntil=Date.now()+2000;skillFx.push({type:'shield',x:p.x+p.w/2,y:p.y+p.h/2,r:38,l:2,max:2});addFt(p.x,p.y-20,'SHIELD','#93c5fd')}
+ if(skill==='arrow'){const speed=440*p.d;arenaShots.push({x:p.x+p.w/2+p.d*18,y:p.y+p.h*.42,vx:speed,vy:0,owner:'player',damage:Math.max(1,Math.round(at*(brsk>0?2:1))),life:2.2});addFt(p.x,p.y-20,'🏹','#facc15')}
+}
+function returnToMainMenu(){state='menu';if(pvpTick)clearInterval(pvpTick);pvpTick=null;if(pvpRoomRef&&pvpRoomListener)pvpRoomRef.off('value',pvpRoomListener);if(pvpRoomRef&&pvpEnemyListener&&pvpMatchEnemyId)pvpRoomRef.child('players').child(pvpMatchEnemyId).off('value',pvpEnemyListener);if(pvpRoomRef&&pvpSelfListener&&pvpPlayerKey)pvpRoomRef.child('players').child(pvpPlayerKey).off('value',pvpSelfListener);pvpEnemyListener=null;pvpSelfListener=null;pvpRoomListener=null;pvpReady=false;arenaMode=null;arenaEnemy=null;arenaShots=[];document.getElementById('game').classList.remove('multiplayer-mode');hide('hud');hide('touch');hide('hint');hide('duelHud');hide('pvpArena');cls();show('menu')}
+function endArena(win){arenaMode=null;arenaEnemy=null;arenaShots=[];hide('duelHud');hide('touch');state='over';cls();$('overTitle').textContent=win?'🏆 KAMU MENANG!':'GAME OVER';$('overTitle').style.color=win?'#facc15':'#ff4d4d';$('result').textContent=win?'Kamu mengalahkan duplikat player komputer!':'Kamu kalah dalam pertarungan.';show('gameover')}
+function playAgain(){snd('menu');if(mpUser){if(pvpTick)clearInterval(pvpTick);pvpTick=null;if(pvpRoomRef&&pvpRoomListener)pvpRoomRef.off('value',pvpRoomListener);if(pvpRoomRef&&pvpEnemyListener&&pvpMatchEnemyId)pvpRoomRef.child('players').child(pvpMatchEnemyId).off('value',pvpEnemyListener);if(pvpRoomRef&&pvpSelfListener&&pvpPlayerKey)pvpRoomRef.child('players').child(pvpPlayerKey).off('value',pvpSelfListener);pvpRoomListener=null;pvpEnemyListener=null;pvpSelfListener=null;pvpReady=false;if($('mpReadyBtn')){$('mpReadyBtn').disabled=false;$('mpReadyBtn').textContent='✅ Ready — Cari Match PvP';}$('mpLobbyStatus').textContent='Lobby siap. Tekan Ready untuk mencari lawan.';pvpFinishShown=false;pvpFinishCleanupScheduled=false;arenaMode=null;arenaEnemy=null;arenaShots=[];document.getElementById('game').classList.remove('multiplayer-mode');hide('duelHud');hide('hud');hide('touch');hide('hint');hide('gameover');cls();show('multiplayerMode');$('mpModeName').textContent=mpUser.username;return}cls();show('modeSelect')}
+function classDamage(name){return ({Novice:16,Warrior:20,Ranger:18,Mage:24,Assassin:28,Paladin:14,Elementalist:25}[name]||16)}
+function pvpClassMaxHp(name){return name==='Paladin'?150:100}
+function updateDuelHud(){if(!duelState)return;const m=duelState.me,e=duelState.enemy;$('pvpMeHp').textContent=Math.max(0,m.hp)+'/'+m.maxHp;$('pvpEnemyHp').textContent=Math.max(0,e.hp)+'/'+e.maxHp;$('pvpMeBar').style.width=Math.max(0,m.hp/m.maxHp*100)+'%';$('pvpEnemyBar').style.width=Math.max(0,e.hp/e.maxHp*100)+'%';$('pvpMeClass').textContent='Class: '+m.className;$('pvpEnemyClass').textContent='Class: '+e.className}
+function duelEffect(text,enemy=false){const stage=$('pvpStage'),el=document.createElement('div');el.className='fightEffect';el.textContent=text;el.style.left=enemy?'72%':'20%';el.style.top='35%';stage.appendChild(el);setTimeout(()=>el.remove(),650)}
+function duelDamage(target,damage){if(target==='me'&&duelState._dodgingUntil>Date.now()){duelEffect('MISS');duelState._dodgingUntil=0;return}if(target==='enemy'){if(Date.now()<duelState.enemy.shieldUntil){duelEffect('🛡️',true);return}duelState.enemy.hp=Math.max(0,duelState.enemy.hp-damage);duelEffect('−'+damage,true)}else{if(Date.now()<duelState.me.shieldUntil){duelEffect('🛡️');return}duelState.me.hp=Math.max(0,duelState.me.hp-damage);duelEffect('−'+damage)}updateDuelHud();if(duelState.enemy.hp<=0||duelState.me.hp<=0){duelState.ended=true;if(duelAiTimer)clearTimeout(duelAiTimer);$('pvpStatus').textContent=duelState.enemy.hp<=0?'🏆 Kamu menang!':'💀 Computer menang!';for(const id of ['pvpDashBtn','pvpShieldBtn','pvpArrowBtn','pvpClassBtn'])$(id).disabled=true}}
+function scheduleComputerTurn(){if(!localDuel||!duelState||duelState.ended)return;duelAiTimer=setTimeout(()=>{if(!localDuel||!duelState||duelState.ended)return;const r=Math.random();if(r<.18){duelState.enemy.shieldUntil=Date.now()+2000;duelEffect('🛡️',true)}else if(r<.35){duelEffect('💨',true)}else{duelDamage('me',classDamage(duelState.enemy.className)*(r>.8?1.5:1))}scheduleComputerTurn()},1800+Math.random()*1700)}
+async function joinMpLobby(){
+ if(!mpUser)return;
+ mpLobbyRef=arcadeDb.ref('monsterfallMultiplayer/lobby');mpPresenceRef=mpLobbyRef.child(mpUser.id);
+ await mpPresenceRef.set({username:mpUser.username,joinedAt:firebase.database.ServerValue.TIMESTAMP,className:selC});
+ mpPresenceRef.onDisconnect().remove();mpLobbyRef.on('value',snap=>{if($('mpCount'))$('mpCount').textContent=snap.numChildren()||1});
+}
+async function findPvpMatch(){
+ if(!mpUser)return;
+ if(pvpReady){$('mpLobbyStatus').textContent='Kamu sudah Ready. Menunggu satu pemain lain yang juga Ready...';return;}
+ $('mpLobbyStatus').textContent='Status: READY. Mencari satu pemain lain yang juga menekan Ready...';
+ const waiting=arcadeDb.ref('monsterfallMultiplayer/waitingRoom');
+ // Tetapkan referensi room sebelum transaksi agar tombol Ready tidak gagal
+ // saat mencoba memasang onDisconnect pada pvpRoomRef yang masih null.
+ pvpRoomRef=waiting;pvpRoomId='waitingRoom';pvpPlayerKey=mpUser.id;
+ try{
+  const result=await waiting.transaction(cur=>{
+   const now=Date.now();
+   cur=cur||{players:{},createdAt:now,status:'waiting'};
+   // Bersihkan match lama yang sudah selesai/tertinggal sebelum menyimpan data antrean baru.
+   const oldPlayers=cur.players||{};
+   const oldIds=Object.keys(oldPlayers);
+   const oldMatchEnded=cur.status==='finished'||oldIds.some(k=>Number(oldPlayers[k]&&oldPlayers[k].hp)<=0);
+   const oldMatchStale=oldIds.length>0&&oldIds.every(k=>now-Number((oldPlayers[k]&&(oldPlayers[k].updatedAt||oldPlayers[k].joinedAt))||0)>90000);
+   if(oldMatchEnded||oldMatchStale)cur={players:{},createdAt:now,status:'waiting'};
+   cur.players=cur.players||{};
+   Object.keys(cur.players).forEach(k=>{const v=cur.players[k];const lastSeen=Number(v&&(v.updatedAt||v.joinedAt)||0);if(!v||v.active===false||(k!==mpUser.id&&now-lastSeen>90000))delete cur.players[k]});
+   const readyIds=Object.keys(cur.players).filter(k=>k!==mpUser.id&&cur.players[k]&&cur.players[k].active!==false&&cur.players[k].ready===true);
+   if(cur.players[mpUser.id]){cur.players[mpUser.id]={...cur.players[mpUser.id],username:mpUser.username,className:selC,active:true,ready:true};}
+   else cur.players[mpUser.id]={username:mpUser.username,className:selC,active:true,ready:true,hp:pvpClassMaxHp(selC),maxHp:pvpClassMaxHp(selC),attack:classDamage(selC),x:200,y:340,shieldUntil:0,cooldowns:{},skills:{},joinedAt:now,updatedAt:now};
+   const ids=Object.keys(cur.players).filter(k=>cur.players[k]&&cur.players[k].active!==false&&cur.players[k].ready===true);
+   if(ids.length>=2){const shuffled=ids.slice().sort(()=>Math.random()-.5);cur.status='battle';cur.matchPlayers=shuffled.slice(0,2);cur.matchId=now+'_'+Math.random().toString(36).slice(2,10);cur.createdAt=now;cur.updatedAt=now;Object.keys(cur.players).forEach(id=>{if(!cur.matchPlayers.includes(id))delete cur.players[id]});
+    cur.matchPlayers.forEach((id,slot)=>{const old=cur.players[id]||{};const className=old.className||'Novice';const maxHp=pvpClassMaxHp(className);cur.players[id]={username:old.username||id,className,active:true,ready:true,hp:maxHp,maxHp,attack:classDamage(className),x:slot===0?180:2200,y:340,direction:slot===0?1:-1,vx:0,vy:0,grounded:true,shieldUntil:0,cooldowns:{dash:0,shield:0,arrow:0,class:0},skills:{},damageEvent:null,joinedAt:old.joinedAt||now,updatedAt:now};});
+   }
+   else {cur.status='waiting';cur.updatedAt=now;}
+   return cur;
+  },undefined,false);
+  if(!result.committed){$('mpLobbyStatus').textContent='Belum bisa masuk antrean. Coba lagi.';return;}
+  const room=result.snapshot.val();if(!room||!room.players||!room.players[mpUser.id]){$('mpLobbyStatus').textContent='Gagal masuk antrean. Coba lagi.';return;}
+  pvpReady=true;pvpRoomRef.child('players').child(mpUser.id).onDisconnect().update({active:false,ready:false,leftAt:firebase.database.ServerValue.TIMESTAMP});$('mpReadyBtn').textContent='⏳ Ready — Menunggu Pemain';$('mpReadyBtn').disabled=true;
+  const ids=(room.matchPlayers||Object.keys(room.players)).filter(k=>room.players[k]&&room.players[k].active!==false&&room.players[k].ready===true);
+  $('mpLobbyStatus').textContent=ids.length>=2&&room.status==='battle'?'Dua pemain Ready! Menyiapkan arena...':'Kamu Ready! Menunggu pemain lain menekan Ready...';
+  if(pvpRoomListener)pvpRoomRef.off('value',pvpRoomListener);
+  pvpRoomListener=snap=>{
+   const data=snap.val();if(!data||!data.players)return;renderPvpSnapshot(data);
+   const matchIds=(data.matchPlayers||Object.keys(data.players)).filter(k=>data.players[k]&&data.players[k].active!==false&&data.players[k].ready===true);
+   if(matchIds.length>=2&&data.status==='battle'&&matchIds.includes(mpUser.id)){startPvpArena(data,matchIds);}
+   else if($('mpLobbyStatus'))$('mpLobbyStatus').textContent='Kamu Ready! Menunggu pemain lain... '+matchIds.length+'/2';
+  };
+  pvpRoomRef.on('value',pvpRoomListener);
+ }catch(e){console.error(e);$('mpLobbyStatus').textContent='Gagal mencari match. Periksa koneksi Firebase.';}
+}
+function showPvpStageEffect(label,onEnemy=false,color='#fde047'){
+ const stage=$('pvpStage');if(!stage)return;const target=$(onEnemy?'fighterEnemy':'fighterMe');const el=document.createElement('div');el.className='fightEffect';el.textContent=label;el.style.left=(parseFloat(target.style.left)|| (onEnemy?8:92))+'%';el.style.top='24%';el.style.color=color;el.style.fontWeight='900';el.style.textShadow='0 0 8px '+color;stage.appendChild(el);setTimeout(()=>el.remove(),700);
+}
+function showPvpSkillEvent(ev,sourceId){if(!ev||!ev.id)return;const isEnemy=sourceId!==pvpPlayerKey;const fighter=$(isEnemy?'fighterEnemy':'fighterMe');if(ev.type==='shield'){fighter.classList.add('shield-active');setTimeout(()=>{if(fighter&&Date.now()>=Number(ev.at||0)+2000)fighter.classList.remove('shield-active')},2050);showPvpStageEffect('🛡️',isEnemy,'#93c5fd')}else if(ev.type==='arrow'){showPvpStageEffect('🏹 ➜',isEnemy,'#facc15')}else if(ev.type==='dash'){showPvpStageEffect('💨',isEnemy,'#67e8f9')}else if(ev.type==='class'){showPvpStageEffect('✨ '+(ev.className||'SKILL'),isEnemy,'#c084fc')}}
+function startPvpArena(data,ids){
+ if(arenaMode==='pvp')return;pvpFinishShown=false;pvpFinishCleanupScheduled=false;document.getElementById('game').classList.add('multiplayer-mode');
+ pvpPlayerKey=mpUser.id;arenaShots=[];const enemyId=ids.find(id=>id!==pvpPlayerKey);if(!enemyId)return;
+ pvpMatchEnemyId=enemyId;
+ const me=data.players[pvpPlayerKey], enemy=data.players[enemyId];
+ $('pvpMeName').textContent=me.username||mpUser.username;$('pvpEnemyName').textContent=enemy.username||'Lawan';
+ $('pvpMeClass').textContent='Class: '+(me.className||selC)+' · DMG '+(Number(me.attack)||classDamage(me.className||selC))+' · CD '+['dash','shield','arrow','class'].map(sk=>{const r=Math.max(0,Math.ceil((Number((me.cooldowns||{})[sk]||0)-Date.now())/1000));return r?sk+':'+r+'s':''}).filter(Boolean).join(' ');$('pvpEnemyClass').textContent='Class: '+(enemy.className||'Novice')+' · CD '+['dash','shield','arrow','class'].map(sk=>{const r=Math.max(0,Math.ceil((Number((enemy.cooldowns||{})[sk]||0)-Date.now())/1000));return r?sk+':'+r+'s':''}).filter(Boolean).join(' ');
+ hide('multiplayerLobby');hide('pvpArena');arenaMode='pvp';arenaCooldowns={dash:0,arrow:0,shield:0};arenaShieldUntil=0;
+ selMode('classic',true);arenaMode='pvp';
+ // Spawn both players at distinct shared-world coordinates so they do not overlap.
+ const mySlot=ids.indexOf(pvpPlayerKey);
+ const mySpawnX=mySlot===0?180:2200;
+ p.x=mySpawnX;p.y=340;p.vx=0;p.vy=0;p.d=mySlot===0?1:-1;p.og=1;p.cl=selC;p.mx=pvpClassMaxHp(selC);p.hp=Math.max(0,Number(me.hp??p.mx));pvpLastHpSent=p.hp;at=classDamage(selC);
+ const enemySpawnX=ids.indexOf(enemyId)===0?180:2200;
+ const enemyX=Number.isFinite(Number(enemy.x))?Number(enemy.x):enemySpawnX;
+ const enemyY=Number.isFinite(Number(enemy.y))?Number(enemy.y):340;
+ arenaEnemy={x:enemyX,y:enemyY,targetX:enemyX,targetY:enemyY,vx:0,vy:0,w:p.w,h:p.h,hp:Number(enemy.hp??100),mx:Number(enemy.maxHp??100),og:1,iv:0,at:0,d:Number(enemy.direction)||-1,s:0,df:0,cl:enemy.className||'Novice',isArenaClone:true,shieldUntil:Number(enemy.shieldUntil||0),remoteId:enemyId,remoteCooldowns:enemy.cooldowns||{},remoteSkills:enemy.skills||{}};
+ // Dengarkan record lawan secara langsung supaya perubahan posisi tidak bergantung pada render snapshot room.
+ if(pvpEnemyListener&&pvpRoomRef&&pvpMatchEnemyId)pvpRoomRef.child('players').child(pvpMatchEnemyId).off('value',pvpEnemyListener);
+ pvpEnemyListener=snap=>{const remote=snap.val();if(!remote||arenaMode!=='pvp'||!arenaEnemy||remote.active===false)return;const rx=Number(remote.x),ry=Number(remote.y);if(Number.isFinite(rx))arenaEnemy.targetX=Math.max(0,Math.min(mxW-arenaEnemy.w,rx));if(Number.isFinite(ry))arenaEnemy.targetY=ry;if(Number.isFinite(Number(remote.direction)))arenaEnemy.remoteDirection=Number(remote.direction);if(Number.isFinite(Number(remote.hp)))arenaEnemy.hp=Math.max(0,Number(remote.hp));if(Number.isFinite(Number(remote.maxHp)))arenaEnemy.mx=Math.max(1,Number(remote.maxHp));arenaEnemy.cl=remote.className||arenaEnemy.cl;arenaEnemy.attack=Number(remote.attack)||classDamage(arenaEnemy.cl);arenaEnemy.shieldUntil=Number(remote.shieldUntil||0);arenaEnemyShieldUntil=arenaEnemy.shieldUntil;arenaEnemy.remoteCooldowns=remote.cooldowns||{};arenaEnemy.remoteSkills=remote.skills||{};};
+ pvpRoomRef.child('players').child(enemyId).on('value',pvpEnemyListener);
+ if(pvpSelfListener&&pvpRoomRef&&pvpPlayerKey)pvpRoomRef.child('players').child(pvpPlayerKey).off('value',pvpSelfListener);
+ pvpSelfListener=snap=>{const own=snap.val();if(!own||arenaMode!=='pvp'||!p)return;if(Number.isFinite(Number(own.hp))&&Number(own.hp)!==Number(p.hp)){p.hp=Math.max(0,Number(own.hp));pvpLastHpSent=p.hp;updateHud();}if(own.damageEvent&&own.damageEvent.id&&own.damageEvent.id!==lastLocalDamageEvent&&own.damageEvent.source!==pvpPlayerKey){lastLocalDamageEvent=own.damageEvent.id;showPvpStageEffect(own.damageEvent.blocked?'🛡️ BLOCK':'−'+Number(own.damageEvent.damage||0),false,own.damageEvent.blocked?'#93c5fd':'#fb7185');}};
+ pvpRoomRef.child('players').child(pvpPlayerKey).on('value',pvpSelfListener);
+ $('duelEnemyName').textContent=(enemy.username||'Lawan')+' · '+arenaEnemy.cl;show('duelHud');updateArenaHud();$('modeBadge').textContent='PVP ONLINE';
+ // Posisi, nyawa, shield, dan cooldown pemain ini dikirim terus ke Firebase agar lawan melihat status terbaru.
+ if(pvpRoomRef&&pvpPlayerKey)pvpRoomRef.child('players').child(pvpPlayerKey).update({x:p.x,y:p.y,direction:p.d,vx:0,vy:0,hp:Math.max(0,p.hp),maxHp:p.mx,attack:classDamage(selC),className:selC,updatedAt:Date.now()}).catch(()=>{});
+ if(pvpTick)clearInterval(pvpTick);pvpTick=setInterval(()=>{if(!p||arenaMode!=='pvp'||!pvpRoomRef||!pvpPlayerKey)return;const cds={};for(const sk of ['dash','arrow','shield','class']){const remaining=Math.max(0,Number(pvpCooldowns[sk]||0));cds[sk]=remaining>0?Date.now()+remaining*1000:0;}const payload={x:Number(p.x)||0,y:Number(p.y)||0,vx:Number(p.vx)||0,vy:Number(p.vy)||0,direction:p.d,grounded:!!p.og,maxHp:Math.max(1,Number(p.mx)||100),attack:classDamage(selC),className:selC,shieldUntil:arenaShieldUntil,cooldowns:cds,updatedAt:Date.now()};const hpNow=Math.max(0,Number(p.hp)||0);if(pvpLastHpSent===null||hpNow!==pvpLastHpSent){payload.hp=hpNow;pvpRoomRef.child('players').child(pvpPlayerKey).update(payload).then(()=>{pvpLastHpSent=hpNow}).catch(()=>{});}else pvpRoomRef.child('players').child(pvpPlayerKey).update(payload).catch(()=>{});},40);
+}
+async function pvpUse(skill){
+ if(localDuel){if(!duelState||duelState.ended||(pvpCooldowns[skill]||0)>0)return;const cd=skill==='class'?(Number((clsD.find(x=>x.n===selC)||clsD[0]).cd)||5):5;pvpCooldowns[skill]=cd;const me=duelState.me;if(skill==='dash'){duelEffect('💨');if(Math.random()<.35)duelState._dodgingUntil=Date.now()+700;}else if(skill==='shield'){me.shieldUntil=Date.now()+2000;duelEffect('🛡️')}else if(skill==='arrow'){duelEffect('🏹');duelDamage('enemy',Math.max(1,Math.round(at*(brsk>0?2:1))))}else{const c=clsD.find(x=>x.n===selC)||clsD[0];duelEffect(({Mage:'⚡',Elementalist:'🌩️',Paladin:'✨',Ranger:'💨',Assassin:'🗡️',Warrior:'🔥',Novice:'⚔️'})[selC]||'✨');if(selC==='Paladin'){me.hp=Math.min(me.maxHp,me.hp+25);me.shieldUntil=Date.now()+1000;updateDuelHud()}else duelDamage('enemy',classDamage(selC));}return;}
+ if(!pvpRoomRef||!pvpPlayerKey||!mpUser)return;
+ if((pvpCooldowns[skill]||0)>0)return;
+ const now=Date.now();const chosenClass=clsD.find(x=>x.n===selC)||clsD[0];pvpCooldowns[skill]=skill==='class'?Number(chosenClass.cd||5):5;arenaCooldowns[skill]=pvpCooldowns[skill];
+ if(arenaMode==='pvp'){if(skill==='dash'){p.x=Math.max(0,Math.min(mxW-p.w,p.x+p.d*125));p.iv=.35;addFt(p.x,p.y-20,'DASH!','#67e8f9')}else if(skill==='shield'){arenaShieldUntil=Date.now()+2000;skillFx.push({type:'shield',x:p.x+p.w/2,y:p.y+p.h/2,r:38,l:2,max:2});addFt(p.x,p.y-20,'SHIELD','#93c5fd')}else if(skill==='arrow'){const speed=440*p.d;arenaShots.push({x:p.x+p.w/2+p.d*18,y:p.y+p.h*.42,vx:speed,vy:0,owner:'player',damage:Math.max(8,Math.round(at*.65)),life:2.2});addFt(p.x,p.y-20,'🏹','#facc15')}else if(skill==='class'){const c=clsD.find(x=>x.n===selC)||clsD[0];if(c&&c.sk)c.sk();addFt(p.x,p.y-20,'SKILL '+selC,'#c084fc')}}
+ if(skill==='shield'){pvpShieldUntil=now+2000;}
+ try{
+  await pvpRoomRef.transaction(room=>{
+   if(!room||room.status!=='battle'||!room.players)return;
+   const me=room.players[pvpPlayerKey];if(!me||me.active===false)return;
+   const ids=Object.keys(room.players).filter(k=>k!==pvpPlayerKey&&room.players[k]&&room.players[k].active!==false);if(!ids.length)return;
+   const enemy=room.players[ids[0]];me.cooldowns=me.cooldowns||{};const last=Number(me.cooldowns[skill]||0);const classCd=Number((clsD.find(x=>x.n===String(me.className||selC))||clsD[0]).cd||5);if(last>Date.now())return;
+   me.cooldowns[skill]=Date.now()+(skill==='class'?classCd:5)*1000;me.skills=me.skills||{};me.skills={...me.skills,last:{id:Date.now()+'_'+Math.random().toString(36).slice(2,7),type:skill,className:me.className||selC,at:Date.now(),x:Number(me.x||0),y:Number(me.y||340),direction:Number(me.direction||1)}};
+   if(skill==='dash'){me.x=Math.max(0,Math.min(2400-36,Number(me.x||0)+Number(me.direction||1)*125));me.cooldowns[skill]=Date.now();}
+   if(skill==='shield'){me.shieldUntil=Date.now()+2000;}
+   if(skill==='class'){
+    const clsName=String(me.className||selC);const damage=Math.max(1,Math.round(classDamage(clsName)));
+    if(Number(enemy.shieldUntil||0)<Date.now()&&clsName!=='Paladin')enemy.hp=Math.max(0,Number(enemy.hp??100)-damage);
+    if(clsName==='Paladin')me.hp=Math.min(Number(me.maxHp||100),Number(me.hp||100)+25);
+   }
+   if(Number(enemy.hp||0)<=0){room.status='finished';room.winner=pvpPlayerKey;}
+   room.updatedAt=Date.now();return room;
+  });
+ }catch(e){console.error(e);$('pvpStatus').textContent='Aksi gagal disinkronkan.';}
+}
+function showPvpMatchResult(data){
+ if(pvpFinishShown)return;pvpFinishShown=true;
+ const winner=data&&data.winner;const won=winner===pvpPlayerKey;
+ state='over';if(pvpTick)clearInterval(pvpTick);pvpTick=null;
+ document.getElementById('game').classList.remove('multiplayer-mode');hide('duelHud');hide('hud');hide('touch');hide('hint');hide('pvpArena');cls();
+ $('overTitle').textContent=won?'🏆 VICTORY':'GAME OVER';$('overTitle').style.color=won?'#facc15':'#ff4d4d';$('result').textContent=won?'Kamu berhasil mengalahkan lawan!':'HP kamu mencapai 0. Kamu kalah dalam pertarungan.';show('gameover');
+ if(!pvpFinishCleanupScheduled&&pvpRoomRef){pvpFinishCleanupScheduled=true;const ref=pvpRoomRef;const finishedId=data&&data.matchId;setTimeout(async()=>{try{const snap=await ref.once('value');const room=snap.val();if(room&&room.status==='finished'&&(!finishedId||room.matchId===finishedId))await ref.remove();}catch(e){console.error('Gagal membersihkan data match PvP:',e)}},2500);}
+}
+function checkAndFinishPvp(data){
+ if(!data||!data.players||!Array.isArray(data.matchPlayers)||data.matchPlayers.length<2)return;
+ if(data.status==='finished'){showPvpMatchResult(data);return;}
+ if(data.status!=='battle')return;
+ const ids=data.matchPlayers;const a=data.players[ids[0]],b=data.players[ids[1]];if(!a||!b)return;
+ if(Number(a.hp)>0&&Number(b.hp)>0)return;
+ const winner=Number(a.hp)<=0?(Number(b.hp)>0?ids[1]:null):ids[0];
+ const ref=pvpRoomRef;if(!ref)return;
+ ref.transaction(room=>{if(!room||room.status!=='battle'||!room.players)return;const pair=room.matchPlayers||[];if(pair.length<2)return;const p1=room.players[pair[0]],p2=room.players[pair[1]];if(!p1||!p2||Number(p1.hp)>0&&Number(p2.hp)>0)return;room.status='finished';room.winner=Number(p1.hp)<=0?(Number(p2.hp)>0?pair[1]:null):pair[0];room.finishedAt=Date.now();room.updatedAt=Date.now();return room;}).catch(e=>console.error('Gagal menyelesaikan match PvP:',e));
+}
+function leavePvp(){pvpReady=false;if($('mpReadyBtn')){$('mpReadyBtn').disabled=false;$('mpReadyBtn').textContent='✅ Ready — Cari Match PvP';}document.getElementById('game').classList.remove('multiplayer-mode');const wasLocal=localDuel;localDuel=false;duelState=null;if(duelAiTimer)clearTimeout(duelAiTimer);duelAiTimer=null;if(pvpTick)clearInterval(pvpTick);pvpTick=null;if(pvpRoomRef&&pvpRoomListener)pvpRoomRef.off('value',pvpRoomListener);if(pvpRoomRef&&pvpEnemyListener&&pvpMatchEnemyId)pvpRoomRef.child('players').child(pvpMatchEnemyId).off('value',pvpEnemyListener);if(pvpRoomRef&&pvpSelfListener&&pvpPlayerKey)pvpRoomRef.child('players').child(pvpPlayerKey).off('value',pvpSelfListener);pvpSelfListener=null;pvpEnemyListener=null;pvpMatchEnemyId=null;hide('pvpArena');if(mpUser){if(wasLocal)show('multiplayerMode');else{show('multiplayerLobby');$('mpLobbyStatus').textContent='Kamu keluar dari arena.';}} }
+async function leaveMp(){pvpReady=false;if($('mpReadyBtn')){$('mpReadyBtn').disabled=false;$('mpReadyBtn').textContent='✅ Ready — Cari Match PvP';}localDuel=false;duelState=null;if(duelAiTimer)clearTimeout(duelAiTimer);duelAiTimer=null;try{if(pvpTick)clearInterval(pvpTick);if(pvpRoomRef&&pvpRoomListener)pvpRoomRef.off('value',pvpRoomListener);if(pvpRoomRef&&pvpEnemyListener&&pvpMatchEnemyId)pvpRoomRef.child('players').child(pvpMatchEnemyId).off('value',pvpEnemyListener);if(pvpRoomRef&&pvpSelfListener&&pvpPlayerKey)pvpRoomRef.child('players').child(pvpPlayerKey).off('value',pvpSelfListener);pvpSelfListener=null;pvpEnemyListener=null;if(pvpRoomRef&&pvpPlayerKey){await pvpRoomRef.child('players').child(pvpPlayerKey).update({active:false,leftAt:Date.now()});}if(mpLobbyRef)mpLobbyRef.off();if(mpPresenceRef)await mpPresenceRef.remove()}catch(e){}
+ pvpTick=null;pvpRoomRef=null;pvpRoomListener=null;pvpRoomId=null;pvpPlayerKey=null;pvpMatchEnemyId=null;mpUser=null;mpLobbyRef=null;mpPresenceRef=null;closeMp()}
+function renderPvpSnapshot(data){if(!data||!data.players)return;checkAndFinishPvp(data);if(data.status==='finished'){showPvpMatchResult(data);return;}if(pvpFinishShown)return;const me=data.players[pvpPlayerKey];const enemyId=(pvpMatchEnemyId&&data.players[pvpMatchEnemyId]&&data.players[pvpMatchEnemyId].active!==false)?pvpMatchEnemyId:Object.keys(data.players).find(k=>k!==pvpPlayerKey&&data.players[k]&&data.players[k].active!==false);const enemy=enemyId&&data.players[enemyId];if(!me||!enemy)return;
+ // HP lokal tetap dimiliki akun ini; snapshot lawan tidak boleh menimpa HP lokal
+ // dengan nilai lama. HP lokal dikirim melalui tick PvP dan berubah saat terkena damage.
+ if(arenaMode==='pvp'&&p){if(Number.isFinite(Number(me.hp)))p.hp=Math.max(0,Number(me.hp));if(Number.isFinite(Number(me.maxHp)))p.mx=Math.max(1,Number(me.maxHp));p.cl=me.className||selC;at=Number(me.attack)||classDamage(p.cl);updateHud();}const ownSkill=me.skills&&me.skills.last;if(ownSkill&&ownSkill.id&&ownSkill.id!==lastLocalSkillEvent){lastLocalSkillEvent=ownSkill.id;showPvpSkillEvent(ownSkill,pvpPlayerKey)}$('fighterMe').classList.toggle('shield-active',Number(me.shieldUntil||0)>Date.now());$('fighterEnemy').classList.toggle('shield-active',Number(enemy.shieldUntil||0)>Date.now());if(enemy.damageEvent&&enemy.damageEvent.id&&enemy.damageEvent.id!==lastRemoteDamageEvent&&enemy.damageEvent.source===pvpPlayerKey){lastRemoteDamageEvent=enemy.damageEvent.id;showPvpStageEffect('−'+Number(enemy.damageEvent.damage||0),true,'#facc15');}
+ if(arenaMode==='pvp'&&arenaEnemy){const rx=Number(enemy.x),ry=Number(enemy.y);if(Number.isFinite(rx))arenaEnemy.targetX=rx;if(Number.isFinite(ry))arenaEnemy.targetY=ry;if(Number.isFinite(Number(enemy.direction)))arenaEnemy.remoteDirection=Number(enemy.direction);arenaEnemy.hp=Number(enemy.hp??arenaEnemy.hp);arenaEnemy.mx=Number(enemy.maxHp??arenaEnemy.mx);arenaEnemy.cl=enemy.className||arenaEnemy.cl;arenaEnemy.attack=Number(enemy.attack)||classDamage(arenaEnemy.cl);arenaEnemy.shieldUntil=Number(enemy.shieldUntil||0);arenaEnemyShieldUntil=arenaEnemy.shieldUntil;arenaEnemy.remoteCooldowns=enemy.cooldowns||{};arenaEnemy.remoteSkills=enemy.skills||{};const ev=arenaEnemy.remoteSkills.last;if(ev&&ev.id&&ev.id!==lastRemoteSkillEvent){lastRemoteSkillEvent=ev.id;showPvpSkillEvent(ev,enemyId);const ex=arenaEnemy.x,ey=arenaEnemy.y;if(ev.type==='shield'){arenaEnemyShieldUntil=Date.now()+2000;skillFx.push({type:'shield',x:ex+arenaEnemy.w/2,y:ey+arenaEnemy.h/2,r:38,l:2,max:2});addFt(ex,ey-20,'SHIELD','#93c5fd')}else if(ev.type==='dash'){skillFx.push({type:'dash',x:ex,y:ey+arenaEnemy.h/2,dir:-arenaEnemy.d,l:.45,max:.45});addFt(ex,ey-20,'DASH!','#67e8f9')}else if(ev.type==='arrow'){const dir=(p.x>ex)?1:-1;arenaShots.push({x:ex+arenaEnemy.w/2+dir*18,y:ey+arenaEnemy.h*.42,vx:440*dir,vy:0,owner:'enemy',damage:Math.max(8,Math.round(classDamage(arenaEnemy.cl)*.65)),life:2.2});addFt(ex,ey-20,'🏹','#facc15')}else if(ev.type==='class'){skillFx.push({type:arenaEnemy.cl==='Mage'?'area':arenaEnemy.cl==='Elementalist'?'lightning':'shield',x:ex+arenaEnemy.w/2,y:ey+arenaEnemy.h/2,r:arenaEnemy.cl==='Mage'?200:arenaEnemy.cl==='Elementalist'?350:38,l:.7,max:.7,color:'#c084fc'});addFt(ex,ey-20,'SKILL '+arenaEnemy.cl,'#c084fc')}}for(const sk of ['dash','arrow','shield','class']){const until=Number(arenaEnemy.remoteCooldowns[sk]||0);arenaEnemy.remoteCooldowns[sk]=Math.max(0,(until-Date.now())/1000)}updateArenaHud()}const stageWidth=$('pvpStage').clientWidth||1;const worldWidth=2400;const myX=Number(me.x)||0,enemyX=Number(enemy.x)||0;$('fighterMe').style.left=Math.max(3,Math.min(97,myX/worldWidth*100))+'%';$('fighterEnemy').style.left=Math.max(3,Math.min(97,enemyX/worldWidth*100))+'%';$('fighterMeName').textContent=(me.username||mpUser.username)+' · '+(me.className||selC);$('fighterEnemyName').textContent=(enemy.username||'Lawan')+' · '+(enemy.className||'Novice');const mh=Math.max(0,Number(me.hp??100)),eh=Math.max(0,Number(enemy.hp??100)),mm=Math.max(1,Number(me.maxHp??100)),em=Math.max(1,Number(enemy.maxHp??100));$('pvpMeHp').textContent=Math.ceil(mh)+'/'+mm;$('pvpEnemyHp').textContent=Math.ceil(eh)+'/'+em;$('pvpMeBar').style.width=Math.max(0,mh/mm*100)+'%';$('pvpEnemyBar').style.width=Math.max(0,eh/em*100)+'%';$('pvpMeClass').textContent='Class: '+(me.className||selC)+' · DMG '+(Number(me.attack)||classDamage(me.className||selC))+' · CD '+['dash','shield','arrow','class'].map(sk=>{const r=Math.max(0,Math.ceil((Number((me.cooldowns||{})[sk]||0)-Date.now())/1000));return r?sk+':'+r+'s':''}).filter(Boolean).join(' ');$('pvpEnemyClass').textContent='Class: '+(enemy.className||'Novice')+' · CD '+['dash','shield','arrow','class'].map(sk=>{const r=Math.max(0,Math.ceil((Number((enemy.cooldowns||{})[sk]||0)-Date.now())/1000));return r?sk+':'+r+'s':''}).filter(Boolean).join(' ');
+ if(data.status==='finished')$('pvpStatus').textContent=data.winner===pvpPlayerKey?'🏆 Kamu menang!':'💀 Kamu kalah.';else if(Number(me.shieldUntil||0)>Date.now())$('pvpStatus').textContent='🛡️ Shield aktif ('+Math.ceil((me.shieldUntil-Date.now())/1000)+'s)';else $('pvpStatus').textContent='⚔️ Bertarung melawan '+(enemy.username||'lawan');
+}
 let W, H, dpr, keys={a:0,d:0,w:0}, state='menu', last=0, shk=0, aCtx=null;
+let arenaMode=null, arenaEnemy=null, arenaCooldowns={dash:0,arrow:0,shield:0}, arenaShieldUntil=0, arenaEnemyShieldUntil=0, arenaEnemyAttackCd=1, arenaEnemyArrowCd=5, arenaPlayerStartX=0, arenaShots=[];
 function resize(){dpr=devicePixelRatio||1;W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
 addEventListener('resize',resize);resize();
 function snd(ty){
@@ -174,18 +443,18 @@ function snd(ty){
 }
 let owns=JSON.parse(localStorage.getItem('mfc')||'["Novice"]'), selC=localStorage.getItem('mfs')||'Novice', gld=Number(localStorage.getItem('mfg')||200);
 let pendingTrd=null, lastR=JSON.parse(localStorage.getItem('mfr')||'null');
-let p, ms=[], ps=[], cs=[], fts=[], ars=[], exps=[], lv=1, xp=0, mxP=100, at=18, bs=null, md='classic', sCd=0, brsk=0, aBst=0, sStrk=0, hGrd=0, mxW=2400;
+let p, ms=[], ps=[], cs=[], fts=[], ars=[], exps=[], skillFx=[], lv=1, xp=0, mxP=100, at=18, bs=null, md='classic', sCd=0, brsk=0, aBst=0, sStrk=0, hGrd=0, mxW=2400;
 const sv=()=>{localStorage.setItem('mfg',gld);localStorage.setItem('mfc',JSON.stringify(owns));localStorage.setItem('mfs',selC)};
 const clsD=[
  {n:'Novice',p:0,cd:5,d:'Status Seimbang. Skill: Tebasan Cepat.',sk:()=>{if(p)p.at=.4;snd('skill')}},
- {n:'Warrior',p:400,cd:8,d:'Damage Ekstra. Skill: Berserk (+ATK x2).',b:()=>{at+=10},sk:()=>{brsk=5;snd('skill')}},
- {n:'Ranger',p:800,cd:5,d:'Sangat Lincah. Skill: Dash Attack.',b:()=>{if(p)p.s+=.6},sk:()=>{if(p)p.x+=p.d*140;atkFn();snd('skill')}},
- {n:'Mage',p:1200,cd:10,d:'Ahli Sihir. Skill: Ledakan Area (Magic).',sk:()=>{aBst=1;snd('skill')}},
+ {n:'Warrior',p:400,cd:8,d:'Damage Ekstra. Skill: Berserk (+ATK x2).',b:()=>{at+=10},sk:()=>{brsk=5;skillFx.push({type:'berserk',x:p.x+p.w/2,y:p.y+p.h/2,l:1,max:1});snd('skill')}},
+ {n:'Ranger',p:800,cd:5,d:'Sangat Lincah. Skill: Dash Attack.',b:()=>{if(p)p.s+=.6},sk:()=>{if(p){let sx=p.x;p.x=Math.max(0,Math.min(mxW-p.w,p.x+p.d*140));skillFx.push({type:'dash',x:sx,y:p.y+p.h/2,dir:p.d,l:.45,max:.45})}atkFn();snd('skill')}},
+ {n:'Mage',p:1200,cd:10,d:'Ahli Sihir. Skill: Ledakan Area (Magic).',sk:()=>{aBst=1;if(p)skillFx.push({type:'area',x:p.x+p.w/2,y:p.y+p.h/2,r:200,l:.55,max:.55,color:'#c084fc'});snd('skill')}},
  {n:'Assassin',p:1600,cd:7,d:'ATK Tinggi. Skill: 1x Kritikal Ekstrem.',b:()=>{at+=20},sk:()=>{sStrk=1;snd('skill')}},
- {n:'Paladin',p:2200,cd:12,d:'Darah Tebal. Skill: Heal & Kebal 5 dtk.',b:()=>{if(p){p.mx+=50;p.hp=p.mx}},sk:()=>{hGrd=5;if(p)p.hp=Math.min(p.mx,p.hp+40);snd('skill')}},
- {n:'Elementalist',p:3000,cd:9,d:'Sihir & Pedang. Skill: Gelombang Petir.',b:()=>{at+=25;if(p)p.s+=.3},sk:()=>{aBst=2;snd('skill')}}
+ {n:'Paladin',p:2200,cd:12,d:'Darah Tebal. Skill: Heal & Kebal 5 dtk.',b:()=>{if(p){p.mx+=50;p.hp=p.mx}},sk:()=>{hGrd=5;if(p){p.hp=Math.min(p.mx,p.hp+40);skillFx.push({type:'shield',x:p.x+p.w/2,y:p.y+p.h/2,r:42,l:5,max:5})}snd('skill')}},
+ {n:'Elementalist',p:3000,cd:9,d:'Sihir & Pedang. Skill: Gelombang Petir.',b:()=>{at+=25;if(p)p.s+=.3},sk:()=>{aBst=2;if(p)skillFx.push({type:'lightning',x:p.x+p.w/2,y:p.y+p.h/2,r:350,l:.7,max:.7});snd('skill')}}
 ];
-const show=i=>$(i).classList.remove('hidden'), hide=i=>$(i).classList.add('hidden'), cls=()=>['menu','modeSelect','skins','gameover','pauseMenu','hud','touch','hint','redeem','confirmPop','receiptPop'].forEach(hide);
+const show=i=>$(i).classList.remove('hidden'), hide=i=>$(i).classList.add('hidden'), cls=()=>['menu','modeSelect','skins','gameover','pauseMenu','hud','touch','hint','redeem','confirmPop','receiptPop','multiplayerLogin','multiplayerRegister','multiplayerLobby','multiplayerMode'].forEach(hide);
 function preTrd(f,d){if(gld<f){snd('hit');return}pendingTrd={f,d};$('confTxt').textContent=`Yakin ingin menukar ${f.toLocaleString('id-ID')} Koin untuk ${d} Diamond?`;show('confirmPop')}
 async function makeArcadeRedeemCode(d){
   const alphabet='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -255,7 +524,7 @@ function buyC(i){let c=clsD[i];if(owns.includes(c.n)){selC=c.n;if(p)p.cl=c.n;sv(
 function useSk(){if(!p||sCd>0)return;let c=clsD.find(x=>x.n===(p.cl||'Novice'))||clsD[0];c.sk();sCd=c.cd;addFt(p.x,p.y-20,"SKILL!","#a855f7")}
 function pauseGame(){if(state!=='play')return;state='pause';show('pauseMenu');sv()}
 const getRnk=()=>lv<5?'Warrior Elemental':lv<15?'Elite Elemental':'Master Elemental';
-function selMode(m){md=m;cls();state='play';lv=1;xp=0;mxP=100;at=18;let cb=clsD.find(x=>x.n===selC);if(cb&&cb.b)cb.b();p={x:200,y:300,vx:0,vy:0,w:36,h:50,hp:100,mx:100,og:0,iv:0,at:0,d:1,s:4,df:0,cl:selC};ms=[];ps=[];cs=[];fts=[];ars=[];exps=[];bs=null;sCd=0;if(cb&&cb.n==='Paladin'){p.mx+=50;p.hp=p.mx}spw();show('hud');show('touch');show('hint')}
+function selMode(m,keepArena=false){if(!keepArena){arenaMode=null;arenaEnemy=null;hide('duelHud')}md=m;cls();state='play';lv=1;xp=0;mxP=100;at=18;let cb=clsD.find(x=>x.n===selC);if(cb&&cb.b)cb.b();p={x:200,y:300,vx:0,vy:0,w:36,h:50,hp:100,mx:100,og:0,iv:0,at:0,d:1,s:4,df:0,cl:selC};ms=[];ps=[];cs=[];fts=[];ars=[];exps=[];skillFx=[];bs=null;sCd=0;if(cb&&cb.n==='Paladin'){p.mx+=50;p.hp=p.mx}spw();show('hud');show('touch');show('hint');if(arenaMode){$('damageStat').style.display='block';$('atk').textContent=classDamage(selC)}else{$('damageStat').style.display='none';document.getElementById('game').classList.remove('multiplayer-mode')}}
 function makeMob(px){
  const scale=md==='classic'?1+lv*.18:1+lv*.12;
  const roll=Math.random();
@@ -264,7 +533,7 @@ function makeMob(px){
  return {x:px,y:330,w:36,h:50,hp,mx:hp,vx:0,cd:ty==='sk'?.6+Math.random():0,ty,fuse:null};
 }
 function spw(){
- ms=[];ars=[];
+ ms=[];ars=[];if(arenaMode){bs=null;return}
  let mc=md==='classic'?(3+lv*2):(4+Math.floor(lv));
  for(let i=0;i<mc;i++){
   let px=md==='classic'?550+i*180:Math.max(100,Math.min(mxW-100,p.x+(Math.random()<.5?400:-400)));
@@ -274,31 +543,32 @@ function spw(){
  else if(md!=='classic'&&lv%4===0)bs={x:Math.max(100,Math.min(mxW-100,p.x+500)),y:280,w:80,h:100,hp:400+lv*80,mx:400+lv*80,vx:0,cd:0,b:1,f:0};
 }
 function jmp(){if(p&&p.og){p.vy=-11.5;p.og=0}}
-function atkFn(){if(!p||p.at>0)return;p.at=.25;[...ms,bs].filter(Boolean).forEach(m=>{let mw=m.b?80:m.w,mh=m.b?100:m.h;if(Math.abs((m.x+mw/2)-(p.x+p.w/2))<(m.b?105:75)&&Math.abs((m.y+mh/2)-(p.y+p.h/2))<75&&(m.x-p.x)*p.d>=-30){let d=Math.round(at*(brsk>0?2:1)*(sStrk>0?3.5:1));m.hp=Math.max(0,m.hp-d);sStrk=0;snd('hit');shk=6;addFt(m.x+mw/2,m.y,`-${d}`,"#ff4d4d");ps.push(...brst(m.x+mw/2,m.y+mh/2,'#fff'));if(m.hp<=0)klM(m)}})}
+function atkFn(){if(!p||p.at>0)return;p.at=.25;if(arenaEnemy&&Math.abs((arenaEnemy.x+arenaEnemy.w/2)-(p.x+p.w/2))<95&&Math.abs((arenaEnemy.y+arenaEnemy.h/2)-(p.y+p.h/2))<75&&(arenaEnemy.x-p.x)*p.d>=-30){const d=Math.round((arenaMode==='pvp'?classDamage(selC):at)*(brsk>0?2:1)*(sStrk>0?3.5:1));sStrk=0;if(arenaMode==='pvp'&&pvpRoomRef&&arenaEnemy.remoteId){const targetRef=pvpRoomRef.child('players').child(arenaEnemy.remoteId),eventId=Date.now()+'_'+Math.random().toString(36).slice(2,8);targetRef.transaction(target=>{if(!target||target.active===false)return;const blocked=Number(target.shieldUntil||0)>Date.now();target.hp=blocked?Math.max(0,Number(target.hp??arenaEnemy.hp)):Math.max(0,Number(target.hp??arenaEnemy.hp)-d);target.damageEvent={id:eventId,damage:blocked?0:d,blocked,at:Date.now(),source:pvpPlayerKey};target.updatedAt=Date.now();return target;}).then(result=>{const target=result.snapshot&&result.snapshot.val();if(target){arenaEnemy.hp=Math.max(0,Number(target.hp??arenaEnemy.hp));arenaEnemyShieldUntil=Number(target.shieldUntil||0);updateArenaHud();addFt(arenaEnemy.x,arenaEnemy.y-15,target.damageEvent&&target.damageEvent.blocked?'SHIELD':'-'+d,target.damageEvent&&target.damageEvent.blocked?'#93c5fd':'#ff4d4d');}}).catch(()=>{});}else{if(Date.now()<arenaEnemyShieldUntil){addFt(arenaEnemy.x,arenaEnemy.y-15,'SHIELD','#93c5fd')}else{arenaEnemy.hp=Math.max(0,arenaEnemy.hp-d);addFt(arenaEnemy.x,arenaEnemy.y-15,'-'+d,'#ff4d4d');updateArenaHud();if(arenaEnemy.hp<=0){endArena(true);return}}}return}[...ms,bs].filter(Boolean).forEach(m=>{let mw=m.b?80:m.w,mh=m.b?100:m.h;if(Math.abs((m.x+mw/2)-(p.x+p.w/2))<(m.b?105:75)&&Math.abs((m.y+mh/2)-(p.y+p.h/2))<75&&(m.x-p.x)*p.d>=-30){let d=Math.round(at*(brsk>0?2:1)*(sStrk>0?3.5:1));m.hp=Math.max(0,m.hp-d);sStrk=0;snd('hit');shk=6;addFt(m.x+mw/2,m.y,`-${d}`,'#ff4d4d');ps.push(...brst(m.x+mw/2,m.y+mh/2,'#fff'));if(m.hp<=0)klM(m)}})}
 function addFt(x,y,t,c){fts.push({x,y,t,c,l:.8,vy:-25})}
 function klM(m){snd('hit');if(m.b){let r=m.f?1000:200+lv*40;gld+=r;xp+=200;sv();addFt(m.x,m.y-20,`+${r}g`,"#ffd34f");bs=null;for(let i=0;i<12;i++)cs.push({x:m.x+(Math.random()-.5)*100,y:m.y,vx:(Math.random()-.5)*5,vy:-6})}else{let r=12+Math.floor(Math.random()*15);gld+=r;sv();xp+=30;addFt(m.x,m.y,`+${r}g`,"#ffd34f");for(let i=0;i<3;i++)cs.push({x:m.x+(Math.random()-.5)*20,y:m.y,vx:(Math.random()-.5)*3,vy:-5});ms=ms.filter(a=>a!==m)}}
 function brst(x,y,c){return Array.from({length:8},()=>({x,y,vx:(Math.random()-.5)*7,vy:(Math.random()-.5)*7,l:.4,c}))}
 function upd(dt){
  if(state!=='play')return;
- sCd=Math.max(0,sCd-dt);p.vx=(keys.a?-p.s:0)+(keys.d?p.s:0);if(p.vx)p.d=Math.sign(p.vx);p.vy+=25*dt;p.x+=p.vx;p.y+=p.vy;if(p.y+p.h>=390){p.y=390-p.h;p.vy=0;p.og=1}
+ sCd=Math.max(0,sCd-dt);for(const sk of Object.keys(arenaCooldowns))arenaCooldowns[sk]=Math.max(0,(arenaCooldowns[sk]||0)-dt);for(const sk of Object.keys(pvpCooldowns))pvpCooldowns[sk]=Math.max(0,(pvpCooldowns[sk]||0)-dt);p.vx=(keys.a?-p.s:0)+(keys.d?p.s:0);if(p.vx)p.d=Math.sign(p.vx);p.vy+=25*dt;p.x+=p.vx;p.y+=p.vy;if(p.y+p.h>=390){p.y=390-p.h;p.vy=0;p.og=1}
  p.x=Math.max(0,Math.min(mxW-p.w,p.x));
- p.iv=Math.max(0,p.iv-dt);p.at=Math.max(0,p.at-dt);brsk=Math.max(0,brsk-dt);hGrd=Math.max(0,hGrd-dt);
+ p.iv=Math.max(0,p.iv-dt);p.at=Math.max(0,p.at-dt);if(arenaEnemy&&arenaMode==='pvp'){arenaEnemy.x+=(Number(arenaEnemy.targetX??arenaEnemy.x)-arenaEnemy.x)*Math.min(1,dt*14);arenaEnemy.y+=(Number(arenaEnemy.targetY??arenaEnemy.y)-arenaEnemy.y)*Math.min(1,dt*14);arenaEnemy.d=Number.isFinite(arenaEnemy.remoteDirection)?arenaEnemy.remoteDirection:((arenaEnemy.targetX< p.x)?1:-1);}if(arenaEnemy&&arenaMode==='computer'){arenaEnemy.vy+=25*dt;arenaEnemy.x+=arenaEnemy.vx*dt;arenaEnemy.y+=arenaEnemy.vy;if(arenaEnemy.y+arenaEnemy.h>=390){arenaEnemy.y=390-arenaEnemy.h;arenaEnemy.vy=0;arenaEnemy.og=1}arenaEnemy.x=Math.max(0,Math.min(mxW-arenaEnemy.w,arenaEnemy.x));arenaEnemy.at=Math.max(0,arenaEnemy.at-dt);arenaEnemyAttackCd-=dt;arenaEnemyArrowCd-=dt;let dx=(p.x+p.w/2)-(arenaEnemy.x+arenaEnemy.w/2);arenaEnemy.vx=Math.abs(dx)>65?Math.sign(dx)*arenaEnemy.s:0;arenaEnemy.d=dx<0?-1:1;if(Math.abs(dx)<85&&arenaEnemyAttackCd<=0){arenaEnemyAttackCd=1.2+Math.random()*.5;arenaEnemy.at=.28;if(Date.now()>arenaShieldUntil&&Math.abs((p.y+p.h/2)-(arenaEnemy.y+arenaEnemy.h/2))<72){let dmg=Math.max(5,Math.round(classDamage(arenaEnemy.cl)*.65));p.hp=Math.max(0,p.hp-dmg);p.iv=.35;addFt(p.x,p.y-10,'-'+dmg,'#fb7185');shk=4;}else if(Date.now()<=arenaShieldUntil)addFt(p.x,p.y-10,'SHIELD','#93c5fd');}else if(arenaEnemyArrowCd<=0&&Math.abs(dx)>85&&Math.abs(dx)<480){const sx=arenaEnemy.x+arenaEnemy.w/2,sy=arenaEnemy.y+arenaEnemy.h*.4,tx=p.x+p.w/2,ty=p.y+p.h*.45,ang=Math.atan2(ty-sy,tx-sx),speed=330;arenaShots.push({x:sx+arenaEnemy.d*15,y:sy,vx:Math.cos(ang)*speed,vy:Math.sin(ang)*speed,owner:'enemy',damage:Math.max(6,Math.round(classDamage(arenaEnemy.cl)*.55)),life:2.3});arenaEnemy.at=.22;arenaEnemyArrowCd=5;}if(Math.random()<.008&&arenaEnemy.og){arenaEnemy.vy=-10;arenaEnemy.og=0}if(Math.random()<.003)arenaEnemyShieldUntil=Date.now()+2000;updateArenaHud();if(arenaEnemy.hp<=0){endArena(true);return}}brsk=Math.max(0,brsk-dt);hGrd=Math.max(0,hGrd-dt);
  if(aBst){let rng=aBst===2?350:200,dmgM=aBst===2?3:2.2,cl=aBst===2?'#facc15':'#c084fc';[...ms,bs].filter(Boolean).forEach(m=>{if(Math.abs(m.x-p.x)<rng){let d=Math.round(at*dmgM);m.hp=Math.max(0,m.hp-d);addFt(m.x,m.y,`-${d}`,cl);ps.push(...brst(m.x,m.y,cl));if(m.hp<=0)klM(m)}});aBst=0}
  ms.forEach(m=>eAI(m,dt));if(bs)eAI(bs,dt);
+ arenaShots.forEach(a=>{a.x+=a.vx*dt;a.y+=(a.vy||0)*dt;a.life-=dt;if(a.life<=0)return;const target=a.owner==='player'?arenaEnemy:p;if(!target)return;if(a.x>=target.x-4&&a.x<=target.x+target.w+4&&a.y>=target.y-2&&a.y<=target.y+target.h+2){if(a.owner==='enemy'){if(Date.now()>arenaShieldUntil&&target.iv<=0){target.hp=Math.max(0,target.hp-a.damage);target.iv=.25;addFt(target.x,target.y-12,'-'+a.damage,'#fb7185');shk=4}else if(Date.now()<=arenaShieldUntil){addFt(target.x,target.y-12,'SHIELD','#93c5fd')}}else if(arenaMode==='pvp'&&pvpRoomRef&&target.remoteId){const targetRef=pvpRoomRef.child('players').child(target.remoteId),eventId=Date.now()+'_'+Math.random().toString(36).slice(2,8);targetRef.transaction(remote=>{if(!remote||remote.active===false)return;const blocked=Number(remote.shieldUntil||0)>Date.now();remote.hp=blocked?Math.max(0,Number(remote.hp??target.mx??100)):Math.max(0,Number(remote.hp??target.mx??100)-a.damage);remote.damageEvent={id:eventId,damage:blocked?0:a.damage,blocked,at:Date.now(),source:pvpPlayerKey};remote.updatedAt=Date.now();return remote;}).then(result=>{const remote=result.snapshot&&result.snapshot.val();if(remote){target.hp=Math.max(0,Number(remote.hp??target.hp));arenaEnemyShieldUntil=Number(remote.shieldUntil||0);addFt(target.x,target.y-12,remote.damageEvent&&remote.damageEvent.blocked?'SHIELD':'-'+a.damage,remote.damageEvent&&remote.damageEvent.blocked?'#93c5fd':'#facc15');updateArenaHud()}}).catch(()=>{});}else if(Date.now()>arenaEnemyShieldUntil){target.hp=Math.max(0,target.hp-a.damage);addFt(target.x,target.y-12,'-'+a.damage,'#facc15');updateArenaHud()}a.life=0;if(arenaMode==='computer'&&arenaEnemy&&arenaEnemy.hp<=0)endArena(true);}});arenaShots=arenaShots.filter(a=>a.life>0);
  ars.forEach(a=>{
   a.x+=a.vx*dt;a.y+=a.vy*dt;a.life-=dt;
-  if(a.life>0&&p.iv<=0&&hGrd<=0&&a.x>=p.x-5&&a.x<=p.x+p.w+5&&a.y>=p.y&&a.y<=p.y+p.h){
+  if(a.life>0&&p.iv<=0&&hGrd<=0&&Date.now()>arenaShieldUntil&&a.x>=p.x-5&&a.x<=p.x+p.w+5&&a.y>=p.y&&a.y<=p.y+p.h){
    const d=Math.max(1,Math.round((8+(lv-1))*(md==='ranked'?2:1)*(1-p.df)));
    p.hp-=d;p.iv=.6;shk=6;snd('hit');addFt(p.x,p.y,`-${d}`,'#ff7777');a.life=0;
   }
  });
  ars=ars.filter(a=>a.life>0&&a.x>=0&&a.x<=mxW&&a.y>=0&&a.y<=430);
  if(md!=='classic'&&ms.length<3&&!bs)ms.push(makeMob(Math.max(100,Math.min(mxW-100,p.x+(Math.random()<.5?400:-400)))));
- exps.forEach(e=>e.l-=dt);exps=exps.filter(e=>e.l>0);
+ exps.forEach(e=>e.l-=dt);exps=exps.filter(e=>e.l>0);skillFx.forEach(e=>e.l-=dt);skillFx=skillFx.filter(e=>e.l>0);
  cs.forEach(c=>{c.vy+=18*dt;c.x+=c.vx;c.y+=c.vy;if(c.y>390){c.y=390;c.vy*=-.3}if(Math.hypot(c.x-p.x,c.y-p.y)<45){c.d=1;gld+=5;sv()}});cs=cs.filter(c=>!c.d);
  fts.forEach(t=>{t.y+=t.vy*dt;t.l-=dt});fts=fts.filter(t=>t.l>0);
  ps.forEach(x=>{x.x+=x.vx;x.y+=x.vy;x.vy+=10*dt;x.l-=dt});ps=ps.filter(x=>x.l>0);
- if(ms.length===0&&!bs&&md==='classic'){if(lv>=10){snd('buy');sv();state='over';cls();$('overTitle').textContent="🏆 MENANG!";$('overTitle').style.color="#facc15";$('result').innerHTML=`Total Gold: <b class="gold">${gld}</b>`;show('gameover');return}lv++;addFt(p.x,p.y-40,`LEVEL ${lv}!`,"#38f0e8");spw()}
+ if(!arenaMode&&ms.length===0&&!bs&&md==='classic'){if(lv>=10){snd('buy');sv();state='over';cls();$('overTitle').textContent="🏆 MENANG!";$('overTitle').style.color="#facc15";$('result').innerHTML=`Total Gold: <b class="gold">${gld}</b>`;show('gameover');return}lv++;addFt(p.x,p.y-40,`LEVEL ${lv}!`,"#38f0e8");spw()}
  if(xp>=mxP){xp-=mxP;if(md!=='classic')lv++;mxP=Math.floor(mxP*1.3);p.mx+=15;p.hp=p.mx;at+=2}
  if(p.hp<=0){snd('death');sv();state='over';cls();$('overTitle').textContent="GAME OVER";$('overTitle').style.color="#ff4d4d";$('result').innerHTML=md==='ranked'?`Rank: <b style="color:#facc15">${getRnk()}</b><br>Level ${lv} | Gold ${gld}`:`Level <b>${lv}</b> | <b class="gold">${gld} Gold</b>.`;show('gameover')}
 }
@@ -315,7 +585,7 @@ function eAI(m,dt){
     exps.push({x:ex,y:ey,r:rad,l:.34,max:.34});
     ps.push(...brst(ex,ey,'#fb923c'),...brst(ex,ey,'#fde047'));
     const pd=Math.hypot((p.x+p.w/2)-ex,(p.y+p.h/2)-ey);
-    if(pd<=rad&&p.iv<=0&&hGrd<=0){
+    if(pd<=rad&&p.iv<=0&&hGrd<=0&&Date.now()>arenaShieldUntil){
      const base=(8+(lv-1))*2*(md==='ranked'?2:1);
      const d=Math.max(1,Math.round(base*(1-p.df)));
      p.hp-=d;p.iv=.6;shk=10;snd('hit');addFt(p.x,p.y,`-${d}`,'#fb923c');
@@ -365,7 +635,7 @@ function eAI(m,dt){
 }
 function drw(){
  ctx.setTransform(dpr,0,0,dpr,0,0);if(shk){ctx.translate((Math.random()-.5)*shk,(Math.random()-.5)*shk);shk*=.85;if(shk<.3)shk=0}ctx.clearRect(0,0,W,H);
- let cm=p?Math.max(0,Math.min(mxW-W,p.x-W*.35)):0,g=ctx.createLinearGradient(0,0,0,H);
+ const mpCamera=document.getElementById('game').classList.contains('multiplayer-mode');let cm=p?(mpCamera?p.x-W*.5:Math.max(0,Math.min(mxW-W,p.x-W*.35))):0,g=ctx.createLinearGradient(0,0,0,H);
  g.addColorStop(0,'#0f172a');g.addColorStop(.6,'#1e293b');g.addColorStop(1,'#090d16');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
  ctx.fillStyle='#fef08a';ctx.beginPath();ctx.arc(W*.8,80,32,0,Math.PI*2);ctx.fill();
  for(let i=0;i<9;i++){ctx.fillStyle=i%2?'#1e293b':'#0f172a';ctx.beginPath();ctx.moveTo(i*300-(cm*.15%300),340);ctx.lineTo(i*300+150-(cm*.15%300),160);ctx.lineTo(i*300+300-(cm*.15%300),340);ctx.fill()}
@@ -376,8 +646,9 @@ function drw(){
  cs.forEach(c=>{ctx.fillStyle='#facc15';ctx.beginPath();ctx.arc(c.x,c.y,6,0,Math.PI*2);ctx.fill()});
  exps.forEach(e=>{ctx.save();ctx.globalAlpha=Math.max(0,e.l/e.max);ctx.fillStyle='#fb923c';ctx.beginPath();ctx.arc(e.x,e.y,e.r*(1-e.l/e.max*.25),0,Math.PI*2);ctx.fill();ctx.fillStyle='#fde047';ctx.beginPath();ctx.arc(e.x,e.y,e.r*.52*(1-e.l/e.max*.2),0,Math.PI*2);ctx.fill();ctx.restore()});
  ars.forEach(a=>{ctx.save();ctx.translate(a.x,a.y);ctx.rotate(Math.atan2(a.vy,a.vx));ctx.fillStyle='#e5e7eb';ctx.fillRect(-10,-1,18,2);ctx.fillStyle='#94a3b8';ctx.beginPath();ctx.moveTo(9,0);ctx.lineTo(4,-4);ctx.lineTo(4,4);ctx.fill();ctx.fillStyle='#cbd5e1';ctx.fillRect(-10,-3,4,1);ctx.fillRect(-10,2,4,1);ctx.restore()});
+ arenaShots.forEach(a=>{ctx.save();ctx.translate(a.x,a.y);ctx.rotate(Math.atan2(a.vy||0,a.vx));ctx.strokeStyle=a.owner==='enemy'?'#f8fafc':'#bfdbfe';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(-13,0);ctx.lineTo(12,0);ctx.stroke();ctx.fillStyle=a.owner==='enemy'?'#ffffff':'#60a5fa';ctx.beginPath();ctx.moveTo(14,0);ctx.lineTo(6,-5);ctx.lineTo(6,5);ctx.closePath();ctx.fill();ctx.restore()});
  ms.forEach(drM);if(bs)drM(bs);
- if(p)drP(p);
+ if(arenaEnemy&&arenaMode){drP(arenaEnemy);ctx.fillStyle='#ef4444';ctx.font='bold 24px Arial';ctx.textAlign='center';ctx.fillText('▼',arenaEnemy.x+arenaEnemy.w/2,arenaEnemy.y-13);ctx.textAlign='left';if(Date.now()<arenaEnemyShieldUntil){const sx=arenaEnemy.x+arenaEnemy.w/2,sy=arenaEnemy.y+arenaEnemy.h/2;ctx.save();ctx.fillStyle='rgba(96,165,250,.22)';ctx.strokeStyle='#bfdbfe';ctx.lineWidth=3;ctx.shadowColor='#60a5fa';ctx.shadowBlur=24;ctx.beginPath();ctx.ellipse(sx,sy,arenaEnemy.w*.95,arenaEnemy.h*.8,0,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(sx,sy,arenaEnemy.w*1.12,arenaEnemy.h*.95,0,0,Math.PI*2);ctx.stroke();ctx.restore();ctx.font='bold 22px Arial';ctx.fillStyle='#dbeafe';ctx.fillText('🛡️',sx,arenaEnemy.y-27);ctx.textAlign='left'}}if(p)drP(p);if(p&&arenaMode){ctx.fillStyle='#38bdf8';ctx.font='bold 24px Arial';ctx.textAlign='center';ctx.fillText('▼',p.x+p.w/2,p.y-13);ctx.textAlign='left'}if(arenaMode&&Date.now()<arenaShieldUntil){const sx=p.x+p.w/2,sy=p.y+p.h/2;ctx.save();ctx.fillStyle='rgba(96,165,250,.25)';ctx.strokeStyle='#bfdbfe';ctx.lineWidth=3;ctx.shadowColor='#60a5fa';ctx.shadowBlur=26;ctx.beginPath();ctx.ellipse(sx,sy,p.w*.95,p.h*.8,0,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(sx,sy,p.w*1.12,p.h*.95,0,0,Math.PI*2);ctx.stroke();ctx.restore();ctx.font='bold 22px Arial';ctx.fillStyle='#dbeafe';ctx.textAlign='center';ctx.fillText('🛡️',sx,p.y-27);ctx.textAlign='left'}
  ps.forEach(x=>{ctx.fillStyle=x.c;ctx.globalAlpha=Math.max(0,x.l*2);ctx.fillRect(x.x,x.y,4,4);ctx.globalAlpha=1});
  fts.forEach(t=>{ctx.fillStyle=t.c;ctx.font="bold 15px Arial";ctx.fillText(t.t,t.x,t.y)});
  ctx.restore();
@@ -398,7 +669,7 @@ function drP(p){
  ctx.fillStyle='#ffe0bd';ctx.fillRect(ox+uX*6,oy+uY*5,uX*2,uY*1.5);
  ctx.fillStyle='#0284c7';ctx.fillRect(ox+uX*2,oy+uY*8,uX*4,uY*3);
  ctx.fillStyle='#0369a1';ctx.fillRect(ox+uX*2,oy+uY*11,uX*4,uY*1);
- if(p.at>0){ctx.strokeStyle='#f8fafc';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(uX*2,oy+uY*6);ctx.lineTo(uX*8,oy+uY*2);ctx.stroke()}
+ if(p.at>0){ctx.strokeStyle='#f8fafc';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(uX*2,oy+uY*6);ctx.lineTo(uX*8,oy+uY*2);ctx.stroke();ctx.strokeStyle='#ffffff';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(ox+uX*6.8,oy+uY*5.8);ctx.lineTo(ox+uX*10.5,oy+uY*2.8);ctx.stroke();ctx.strokeStyle='#d1d5db';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(ox+uX*6.2,oy+uY*6.1);ctx.lineTo(ox+uX*7.2,oy+uY*5.1);ctx.stroke()}
  ctx.restore();
 }
 function drM(m){
@@ -440,7 +711,7 @@ function drM(m){
   ctx.strokeStyle='#92400e';ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(ox+uX*7.4,oy+uY*5.8,uX*1.7,-Math.PI/2,Math.PI/2);ctx.stroke();
   ctx.strokeStyle='#d6d3d1';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(ox+uX*7.4,oy+uY*4.1);ctx.lineTo(ox+uX*7.4,oy+uY*7.5);ctx.stroke();
  } else {
-   ctx.fillStyle=m.b?'#1e3a1e':'#417d30';ctx.fillRect(ox+uX*1,oy,uX*6,uY*4);
+ ctx.fillStyle=m.b?'#1e3a1e':'#417d30';ctx.fillRect(ox+uX*1,oy,uX*6,uY*4);
  ctx.fillStyle='#234719';ctx.fillRect(ox+uX*1,oy,uX*6,uY*1);ctx.fillRect(ox+uX*5,oy,uX*2,uY*4);
  ctx.fillStyle='#000';ctx.fillRect(ox+uX*2,oy+uY*1.5,uX*1.5,uY*1);ctx.fillRect(ox+uX*5,oy+uY*1.5,uX*1.5,uY*1);
  ctx.fillStyle='#1d3b13';ctx.fillRect(ox+uX*3,oy+uY*2.8,uX*2,uY*1);
@@ -455,12 +726,13 @@ function drM(m){
 function syc(){
  if(!p)return;$('hpText').textContent=`${Math.max(0,Math.ceil(p.hp))}/${p.mx}`;$('hp').style.width=Math.max(0,p.hp/p.mx*100)+'\%';$('xp').style.width=xp/mxP*100+'%';$('lv').textContent=lv;$('gold').textContent=gld;$('atk').textContent=at;$('modeBadge').textContent=md==='classic'?`KLASIK L${lv}/10`:md==='ranked'?`RANK: ${getRnk().toUpperCase()}`:`ENDLESS L${lv}`;
  if(bs){show('bossWrap');$('bossName').textContent=bs.f?"FINAL BOSS":"BOSS";$('bossFill').style.width=(bs.hp/bs.mx*100)+'%'}else hide('bossWrap');
- if($('skillBtn')){if(sCd>0){$('skillBtn').style.opacity='.5';$('skillBtn').textContent=Math.ceil(sCd)}else{$('skillBtn').style.opacity='1';$('skillBtn').textContent='✦'}}
+ if(arenaMode){['dash','arrow','shield'].forEach(sk=>{const el=$(sk+'Btn');if(el){el.style.display='flex';el.disabled=arenaCooldowns[sk]>0;el.textContent=(sk==='dash'?'Dash':sk==='arrow'?'Panah':'Shield')+(arenaCooldowns[sk]>0?' '+Math.ceil(arenaCooldowns[sk])+'s':' ✓')}})}if($('skillBtn')){if(sCd>0){$('skillBtn').style.opacity='.5';$('skillBtn').textContent=Math.ceil(sCd)}else{$('skillBtn').style.opacity='1';$('skillBtn').textContent='✦'}}
 }
 addEventListener('keydown',e=>{if(e.repeat)return;let k=e.key.toLowerCase();if(k==='a'||k==='arrowleft')keys.a=1;if(k==='d'||k==='arrowright')keys.d=1;if(k==='w'||k===' '||k==='arrowup')jmp();if(k==='j')atkFn();if(k==='k')useSk()});
 addEventListener('keyup',e=>{let k=e.key.toLowerCase();if(k==='a'||k==='arrowleft')keys.a=0;if(k==='d'||k==='arrowright')keys.d=0});
 addEventListener('blur',()=>{keys.a=0;keys.d=0});
 function lp(t){let dt=Math.min(.033,(t-last)/1000||0);last=t;upd(dt);drw();syc();requestAnimationFrame(lp)}requestAnimationFrame(lp);
+setTimeout(restoreMpSession,250);
 </script>
 </body>
 </html>
